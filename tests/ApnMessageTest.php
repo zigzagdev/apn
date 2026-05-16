@@ -198,6 +198,15 @@ class ApnMessageTest extends TestCase
 
         $this->assertEquals(['foo' => 'bar'], $message->custom);
         $this->assertEquals($message, $result);
+
+
+        $message->custom('foo', 'bar')
+            ->custom(['baz' => 'qux']);
+
+        $this->assertEquals(
+            ['foo' => 'bar', 'baz' => 'qux'],
+            $message->custom,
+        );
     }
 
     public function test_it_can_set_url_arg(): void
