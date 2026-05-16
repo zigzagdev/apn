@@ -370,7 +370,7 @@ class ApnMessage
     public function custom(array|string $custom, mixed $value = null): self
     {
         if (is_array($custom)) {
-            $this->custom = $custom;
+            $this->custom = array_replace($this->custom, $custom);
         } else {
             $this->custom[$custom] = $value;
         }
