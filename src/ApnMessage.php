@@ -367,13 +367,9 @@ class ApnMessage
     /**
      * Add custom data to the notification.
      */
-    public function custom(array|string $custom, mixed $value = null): self
+    public function custom(array $custom): self
     {
-        if (is_array($custom)) {
-            $this->custom = array_replace($this->custom, $custom);
-        } else {
-            $this->custom[$custom] = $value;
-        }
+        $this->custom = $custom;
 
         return $this;
     }
@@ -396,17 +392,6 @@ class ApnMessage
         $this->urlArgs = $urlArgs;
 
         return $this;
-    }
-
-    /**
-     * Add an action to the notification.
-     */
-    public function action(string $action, mixed $params = null): self
-    {
-        return $this->custom('action', [
-            'action' => $action,
-            'params' => $params,
-        ]);
     }
 
     /**
