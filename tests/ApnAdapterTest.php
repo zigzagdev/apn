@@ -279,7 +279,7 @@ class ApnAdapterTest extends TestCase
 
     public function test_it_adapts_custom(): void
     {
-        $message = new ApnMessage()->custom('key', 'value');
+        $message = new ApnMessage()->custom(['key' => 'value']);
 
         $notification = $this->adapter->adapt($message, 'token');
 

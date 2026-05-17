@@ -180,16 +180,6 @@ class ApnMessageTest extends TestCase
         $this->assertEquals($message, $result);
     }
 
-    public function test_it_can_set_custom_value(): void
-    {
-        $message = new ApnMessage;
-
-        $result = $message->custom('foo', 'bar');
-
-        $this->assertEquals(['foo' => 'bar'], $message->custom);
-        $this->assertEquals($message, $result);
-    }
-
     public function test_it_can_set_custom_values(): void
     {
         $message = new ApnMessage;
@@ -227,20 +217,6 @@ class ApnMessageTest extends TestCase
         $result = $message->customAlert('foo');
 
         $this->assertEquals('foo', $message->customAlert);
-        $this->assertEquals($message, $result);
-    }
-
-    public function test_it_can_set_action(): void
-    {
-        $message = new ApnMessage;
-
-        $result = $message->action('action', ['foo' => 'bar']);
-
-        $expected = [
-            'action' => ['action' => 'action', 'params' => ['foo' => 'bar']],
-        ];
-
-        $this->assertEquals($expected, $message->custom);
         $this->assertEquals($message, $result);
     }
 
