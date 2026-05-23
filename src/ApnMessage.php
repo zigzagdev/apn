@@ -26,7 +26,7 @@ class ApnMessage
     /**
      * The badge of the notification.
      */
-    public ?int $badge;
+    public ?int $badge = null;
 
     /**
      * The sound of the notification.
